@@ -8,14 +8,14 @@
                         <p style="page-break-after:always;"/>
                         <div t-if="o.finished_move_line_ids">
                             <table t-foreach="o.finished_move_line_ids" t-as="ml" class="table table-bordered">
-                                <tr>
+<!--                                <tr>
                                     <td colspan="2">
                                         <img class="img img-responsive" src="/schall_etiquetas_albaran_dos/static/src/schallx150.png"/>
                                     </td>
-                                </tr>
+                                </tr>-->
                                 <tr>
                                     <td class="small" style="padding: 1px; text-align:center;" colspan="2">
-                                        <span t-field="ml.lot_id"/>
+<!--                                        <span t-field="ml.lot_id"/>-->
                                         <span t-if="not ml.lot_id" t-field="ml.lot_name"/>
                                         <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', ml.lot_id.name, 600, 100)" style="width:300px;height:50px"/>
                                     </td>
@@ -62,7 +62,7 @@
                                 </tr>
                                 <tr>
                                     <td class="small" style="padding: 1px;">
-                                        M. CUADRADOS
+                                        M. 2
                                     </td>
                                     <td class="small" style="padding: 1px;">
                                         <span t-field="o.m2"/>
@@ -70,7 +70,7 @@
                                 </tr>
                                 <tr>
                                     <td class="small" style="padding: 1px;">
-                                        LARGO ROLLO (MTS)
+                                        LARGO ROLL
                                     </td>
                                     <td class="small" style="padding: 1px;">
                                         <span t-field="o.large"/>
@@ -78,7 +78,7 @@
                                 </tr>
                                 <tr>
                                     <td class="small" style="padding: 1px;">
-                                        ANCHO ROLLO (MTS)
+                                        ANCHO ROLL
                                     </td>
                                     <td class="small" style="padding: 1px;">
                                         <span t-field="o.wigth"/>
@@ -86,7 +86,7 @@
                                 </tr>
                                 <tr>
                                     <td class="small" style="padding: 1px;">
-                                        GRAMAJE (GR/M2)
+                                        GRAMAJE
                                     </td>
                                     <td class="small" style="padding: 1px;">
                                         <span t-field="o.gr_m2"/>
@@ -110,7 +110,8 @@
                                 </tr>
                                 <tr>
                                     <td class="small" style="padding: 1px;">
-                                        ROLLOS EN LA TARIMA
+                                        ROLLOS <br></br>
+                                        EN TARIMA
                                     </td>
                                     <td class="small" style="padding: 1px;">
                                         <span t-esc="o.get_linked_move_lines(ml)"/>
