@@ -23,11 +23,11 @@ class mrp_tag(models.Model):
         'Nombre del producto.',
         related='product_id.name'
     )
-    m2 = fields.Integer('Metros cuadrados. (m2)', size=2)
+    m2 = fields.Float('Metros cuadrados. (m2)', size=2)
     large = fields.Float('Largo del rollo (mts).', size=2)
     wigth = fields.Float('Ancho del rollo (mts).', size=2)
-    gr_m2 = fields.Integer('Gramaje (gr/m2).', size=2)
-    thicknesstest = fields.Integer('Prueba de espesor (mm).', size=2)
+    gr_m2 = fields.Float('Gramaje (gr/m2).', size=2)
+    thicknesstest = fields.Float('Prueba de espesor (mm).', size=2)
     lot_id = fields.Many2one('stock.production.lot', 'No de lote.')
     loation_id = fields.Many2one(
         'stock.location',
