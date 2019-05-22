@@ -20,13 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','quality_control'],
+    'depends': [
+    'base'
+    , 'quality_control'
+    , 'mrp_tag'
+    ],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
-        #'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

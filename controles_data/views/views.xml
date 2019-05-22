@@ -1,15 +1,42 @@
 <odoo>
     <data>
-        <record id="control_calidad_tree_view" model="ir.ui.view">
-            <field name="name">control.calidad.tree.view</field>
-            <field name="model">quality.check</field>
-            <field name="inherit_id" ref="quality_control.quality_check_view_tree"></field>
+        <record id="fabricacion_tree_view" model="ir.ui.view">
+            <field name="name">fabricacion.tree.view</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_tree_view"></field>
+            <field name="mode">primary</field>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='quality_state']" position="after">
-                    <field name="measure"/>
-                    <field name="norma"/>
+                <xpath expr="//field[@name='origin']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='availability']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='routing_id']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='product_qty']" position="after">
+                    <field name="peso"/>
+                    <field name="large"/>
+                    <field name="wigth"/>
+                    <field name="m2"/>
+                    <field name="gr_m2"/>
+                    <field name="thicknesstest"/>
+                    <field name="lot_id"/>
                 </xpath>
             </field>
         </record>
+        <record id="action_mostrar_productos_fabricacion" model="ir.actions.act_window">
+            <field name="name">action.mostrar.productos.fabricacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.production</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="fabricacion_tree_view"/>
+        </record>
     </data>
+    <menuitem
+        id="graficas_data_fabricacion"
+        name="Data Gráficos"
+        action="action_mostrar_productos_fabricacion"
+        parent="mrp.menu_mrp_reporting"
+        sequence="30"
+    />
 </odoo>
