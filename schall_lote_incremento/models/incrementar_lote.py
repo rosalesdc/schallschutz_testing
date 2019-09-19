@@ -53,7 +53,7 @@ class IncrementaLote(models.Model):
     
 class ModCodigo_Barras(models.Model):
     _inherit = 'product.product'
-    barcode = fields.Char(required=True, size = 4)
+    barcode = fields.Char( size = 4)
  
     @api.constrains('barcode')
     def check_name(self):
